@@ -82,6 +82,8 @@ if (IsRunningOnWindows ()) {
     CURRENT_PLATFORM = "Mac";
 } else if (IsRunningOnLinux ()) {
     CURRENT_PLATFORM = "Linux";
+} else if (IsRunningOnFreeBSD ()) {
+    CURRENT_PLATFORM = "FreeBSD";
 } else {
     throw new Exception ("This script is not running on a known platform.");
 }
@@ -439,6 +441,7 @@ Task ("samples")
     var isLinux = IsRunningOnLinux ();
     var isMac = IsRunningOnMacOs ();
     var isWin = IsRunningOnWindows ();
+    var isFreeBSD = IsRunningOnFreeBSD ();
 
     void BuildSample (FilePath sln, bool dryrun)
     {
